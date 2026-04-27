@@ -1,5 +1,9 @@
 package com.p2p.domain;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Borrower {
+    private static final Logger logger = LoggerFactory.getLogger(Borrower.class);
 
 // Status verifikasi KYC
 private boolean verified;
@@ -26,7 +30,8 @@ return creditScore;
 // DOMAIN BEHAVIOR (NEW)
 // =========================
 public boolean canApplyLoan() {
-return verified;
+    logger.debug("Mengecek apakah borrower dapat mengajukan pinjaman. Verified: {}", verified);
+    return verified;
 }
 
 }

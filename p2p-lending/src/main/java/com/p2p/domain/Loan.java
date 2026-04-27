@@ -1,5 +1,9 @@
 package com.p2p.domain;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Loan {
+    private static final Logger logger = LoggerFactory.getLogger(Loan.class);
     // Enum untuk status loan
     public enum Status {
         PENDING, APPROVED, REJECTED
@@ -25,9 +29,11 @@ public class Loan {
     // DOMAIN BEHAVIOR
     // =========================
     public void approve() {
+        logger.info("Loan disetujui");
         this.status = Status.APPROVED;
     }
     public void reject() {
+        logger.warn("Loan ditolak");
         this.status = Status.REJECTED;
     }
 }
